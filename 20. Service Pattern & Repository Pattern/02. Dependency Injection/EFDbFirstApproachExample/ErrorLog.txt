@@ -1,0 +1,13 @@
+Message: The underlying provider failed on Open., Type: System.Data.Entity.Core.EntityException, Source: EntityFramework
+Message: The underlying provider failed on Open., Type: System.Data.Entity.Core.EntityException, Source: EntityFramework
+Message: The underlying provider failed on Open., Type: System.Data.Entity.Core.EntityException, Source: EntityFramework
+Message: Unexpected "{" after "@" character. Once inside the body of a code block (@if {}, @{}, etc.) you do not need to use "@{" to switch to code.
+, Type: System.Web.HttpParseException, Source: System.Web.WebPages.Razor
+Message: Unexpected "{" after "@" character. Once inside the body of a code block (@if {}, @{}, etc.) you do not need to use "@{" to switch to code.
+, Type: System.Web.HttpParseException, Source: System.Web.WebPages.Razor
+Message: Unexpected "{" after "@" character. Once inside the body of a code block (@if {}, @{}, etc.) you do not need to use "@{" to switch to code.
+, Type: System.Web.HttpParseException, Source: System.Web.WebPages.Razor
+Message: C:\Users\Harsha\AppData\Local\Temp\Temporary ASP.NET Files\vs\31733ea9\3a5ab6e1\App_Web_index.cshtml.96cad0f2.pasw5f1a.0.cs(30): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'EFDbFirstApproachExample' (are you missing an assembly reference?), Type: System.Web.HttpCompileException, Source: System.Web
+Message: C:\Users\Harsha\AppData\Local\Temp\Temporary ASP.NET Files\vs\31733ea9\3a5ab6e1\App_Web_index.cshtml.96cad0f2.pasw5f1a.0.cs(30): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'EFDbFirstApproachExample' (are you missing an assembly reference?), Type: System.Web.HttpCompileException, Source: System.Web
+Message: C:\Users\Harsha\AppData\Local\Temp\Temporary ASP.NET Files\vs\31733ea9\3a5ab6e1\App_Web_index.cshtml.96cad0f2.kyukcnmz.0.cs(30): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'EFDbFirstApproachExample' (are you missing an assembly reference?), Type: System.Web.HttpCompileException, Source: System.Web
+Message: C:\Users\Harsha\AppData\Local\Temp\Temporary ASP.NET Files\vs\31733ea9\3a5ab6e1\App_Web_index.cshtml.96cad0f2.nbjkbmda.0.cs(30): error CS0234: The type or namespace name 'Models' does not exist in the namespace 'EFDbFirstApproachExample' (are you missing an assembly reference?), Type: System.Web.HttpCompileException, Source: System.Web

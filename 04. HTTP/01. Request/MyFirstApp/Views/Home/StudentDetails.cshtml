@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Student Details</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/umd/popper.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="/home/index">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/home/products">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/home/contact">Contact</a>
+            </li>
+        </ul>
+    </nav>
+    @{
+        string StudentResult;
+        if (ViewBag.Marks >= 35)
+        {
+            StudentResult = "Pass";
+        }
+        else
+        {
+            StudentResult = "Fail";
+        }
+    }
+    <div class="container-fluid">
+        <table class="table">
+            <tr>
+                <td>Student Id</td>
+                <td>@ViewBag.StudentId</td>
+            </tr>
+            <tr>
+                <td>Student Name</td>
+                <td>@ViewBag.StudentName</td>
+            </tr>
+            <tr>
+                <td>Marks</td>
+                <td>@ViewBag.Marks</td>
+            </tr>
+            <tr>
+                <td>Result</td>
+                <td>@StudentResult</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    @if (StudentResult == "Pass")
+                    {
+                        <span class="text-success">Congratulations</span>
+                    }
+                    else
+                    {
+                        <span class="text-danger">Better luck next time!</span>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>Semesters</td>
+                <td>
+                    <ul>
+                        @for (int i = 1; i <= ViewBag.NoOfSemesters; i++)
+                        {
+                            <li>@i</li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Subjects</td>
+                <td>
+                    <ul>
+                        @foreach (var subject in ViewBag.Subjects)
+                        {
+                            <li>@subject</li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
+

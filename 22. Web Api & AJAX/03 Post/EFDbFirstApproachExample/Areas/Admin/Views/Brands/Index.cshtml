@@ -1,0 +1,174 @@
+﻿@{
+    ViewBag.Title = "Brands";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage1.cshtml";
+}
+
+<h2>Brands</h2>
+<button type="button" id="btnGetBrands" class="btn">Get Brands</button>
+<table class="table brandsTable">
+    <tr>
+        <th>Brand ID</th>
+        <th>Brand Name</th>
+    </tr>
+
+</table>
+
+<div class="modal fade" id="ViewBrandModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">View Brand</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tr>
+                        <td>Brand ID</td>
+                        <td><span id="BrandIDSpan"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Brand Name</td>
+                        <td><span id="BrandNameSpan"></span></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        New Brand
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="form-group">
+                <label for="BrandID">Brand ID</label>
+                <input type="text" class="form-control" placeholder="Brand ID" id="txtNewBrandID" />
+            </div>
+            <div class="form-group">
+                <label for="BrandName">Brand Name</label>
+                <input type="text" class="form-control" placeholder="Brand Name" id="txtNewBrandName" />
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+        <button type="button" id="btnInsert" class="btn btn-success">Save</button>
+        <button type="button" id="btnCancel" class="btn btn-danger">Cancel</button>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Update Brand
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="form-group">
+                <label for="BrandID">Existing Brand ID</label>
+                <input type="text" class="form-control" placeholder="Brand ID" id="txtEditBrandID" disabled="disabled" />
+            </div>
+            <div class="form-group">
+                <label for="BrandName">Brand Name</label>
+                <input type="text" class="form-control" placeholder="Brand Name" id="txtEditBrandName" />
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+        <button type="button" id="btnUpdate" class="btn btn-success">Save</button>
+        <button type="button" id="btnCancel" class="btn btn-danger">Cancel</button>
+    </div>
+</div>
+
+<script>
+    $("#btnGetBrands").click(() =>
+    {
+        $.ajax({
+            type: "GET", url: "/api/Brands", success: (response) =>
+            {
+                for (var i = 0; i < response.length; i++)
+                {
+                    var br = response[i];
+                    var str = "<tr><td>" + br.BrandID + "</td> <td>" + br.BrandName + "</td><td><button type='button' class='btn btn-info ViewBrandButton' data-brandid='" + br.BrandID + "' data-toggle='modal' data-target='#ViewBrandModel'>View</button> <button type='button' class='btn btn-info EditBrandButton' data-brandid='" + br.BrandID + "'>View</button> </td></tr>";
+                    $(".brandsTable").append(str);
+                }
+            }, error: (err) =>
+            {
+                alert(err);
+                console.log(err);
+            }
+        });
+    });
+
+    $(document).on("click", ".ViewBrandButton", (event) =>
+    {
+        var bid = $(event.target).attr("data-brandid");
+        $.ajax({
+            type: "GET", url: "/api/Brands?brandid=" + bid, success: (response) =>
+            {
+                $("#BrandIDSpan").html(response.BrandID);
+                $("#BrandNameSpan").html(response.BrandName);
+            }, error: (err) =>
+            {
+                alert(err);
+                console.log(err);
+            }
+        });
+    });
+
+    $("#btnInsert").click(() =>
+    {
+        var brandID = $("#txtNewBrandID").val();
+        var brandName = $("#txtNewBrandName").val();
+        $.ajax({
+            type: "POST", url: "/api/Brands", data: { "brandid": brandID, "brandname": brandName }, success: (response) =>
+            {
+                var recCount = $(".brandsTable tr").length;
+                var str = "<tr><td>" + brandID + "</td> <td>" + brandName + "</td><td><button type='button' class='btn btn-info ViewBrandButton' data-brandid='" + brandID + "' data-toggle='modal' data-target='#ViewBrandModel'>View</button></td></tr>";
+                $(".brandsTable").append(str);
+            }, error: (err) =>
+            {
+                alert(err);
+                console.log(err);
+            }
+        });
+    });
+
+    $(document).on("click", ".EditBrandButton", (event) =>
+    {
+        var bid = $(event.target).attr("data-brandid");
+        $.ajax({
+            type: "GET", url: "/api/Brands?brandid=" + bid, success: (response) =>
+            {
+                $("#BrandIDSpan").html(response.BrandID);
+                $("#BrandNameSpan").html(response.BrandName);
+            }, error: (err) =>
+            {
+                alert(err);
+                console.log(err);
+            }
+        });
+    });
+
+    $("#btnUpdate").click(() =>
+    {
+        var brandID = $("#txtEditBrandID").val();
+        var brandName = $("#txtEditBrandName").val();
+        $.ajax({
+            type: "PUT", url: "/api/Brands", data: { "brandid": brandID, "brandname": brandName }, success: (response) =>
+            {
+            }, error: (err) =>
+            {
+                alert(err);
+                console.log(err);
+            }
+        });
+    });
+</script>
+
+

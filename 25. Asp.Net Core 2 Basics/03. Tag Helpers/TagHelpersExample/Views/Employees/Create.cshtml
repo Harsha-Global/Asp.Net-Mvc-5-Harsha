@@ -1,0 +1,30 @@
+﻿@model TagHelpersExample.Models.Employee
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+<html>
+    <head>
+        <title>Create</title>
+    </head>
+    <body>
+        <h4>Create Employee</h4>
+        <form action="/employees/create" method="post">
+            <label for="EmpID">Emp ID:</label>
+            <input type="text" asp-for="EmpID" /><br />
+            <label for="EmpName">Emp Name:</label>
+            <input type="text" asp-for="EmpName" /><br />
+            <label for="Salary">Salary:</label>
+            <input type="text" asp-for="Salary" /><br />
+            <label for="ReceiveNewsLetters">Receive News Letters:</label>
+            <input type="checkbox" asp-for="ReceiveNewsLetters" /><br />
+            <label for="Country">Country:</label>
+            <select asp-for="Country">
+                <option>India</option>
+                <option>UK</option>
+                <option>USA</option>
+            </select>
+            <br />
+            <input type="submit" value="Submit" />
+        </form>
+    </body>
+</html>
+
+

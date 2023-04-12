@@ -1,0 +1,63 @@
+﻿@model StackOverflowProject.ViewModels.QuestionViewModel
+
+@{ 
+    ViewBag.Title = "Create Question";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1>Create Question</h1>
+        <form class="needs-validation" novalidate="novalidate" action="/questions/create" method="post">
+            @Html.AntiForgeryToken()
+            <div class="form-row">
+                <div class="form-group col-sm-12">
+                    <label for="txtQuestionName">Question</label>
+                    <textarea class="form-control" id="txtQuestionName" placeholder="Enter question" name="QuestionName" required="required" pattern="^[a-zA-Z ]*$" autofocus="autofocus"></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter question.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label for="drpCategory">Category</label>
+                    <select class="form-control" id="drpCategory" name="CategoryID" required="required">
+                        <option value="">Please Select</option>
+                        @foreach (var item in ViewBag.Categories)
+                        {
+                            <option value="@item.CategoryID">@item.CategoryName</option>
+                        }
+                    </select>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Category can't be empty
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Question</button>
+            @Html.ValidationSummary()
+        </form>
+    </div>
+</div>
+
+<script>
+    $(document).on("submit", ".needs-validation", validate);
+    $(".needs-validation input").blur(validate);
+    function validate(event)
+    {
+        if ($(".needs-validation")[0].checkValidity() == false)
+        {
+            event.preventDefault();
+        }
+        $(".needs-validation")[0].classList.add("was-validated");
+    }
+    
+</script>
+

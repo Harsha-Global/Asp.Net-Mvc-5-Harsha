@@ -1,0 +1,70 @@
+﻿@model EFDbFirstApproachExample.Models.Product
+@using EFDbFirstApproachExample.HtmlHelpers
+
+@{
+    ViewBag.Title = "Create Product";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Create Product</h2>
+
+@using (Html.BeginForm("Create", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(temp => temp.ProductName)
+            @Html.TextBoxFor(temp => temp.ProductName, new { placeholder ="Product Name", @class = "form-control" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(temp => temp.Price)
+            @Html.TextBoxFor(temp => temp.Price, new { placeholder = "Price", @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(temp => temp.DOP)
+            @Html.TextBoxFor(temp => temp.DOP, new { placeholder = "Date of Purchase", @class = "form-control" })
+        </div>
+        <div class="col-md-6">
+            <div class="form-group col-md-6">
+                @Html.LabelFor(temp => temp.AvailabilityStatus, new { @class = "form-check-label" })
+                <div class="form-check">
+                    @Html.RadioButtonFor(temp => temp.AvailabilityStatus, "InStock", new { @class = "form-check-input", id = "InStock" })
+                    <label class="form-check-label" for="InStock">In Stock</label>
+                </div>
+                <div class="form-check">
+                    @Html.RadioButtonFor(temp => temp.AvailabilityStatus, "OutOfStock", new { @class = "form-check-input", id = "OutOfStock" })
+                    <label class="form-check-label" for="OutOfStock">Out of Stock</label>
+                </div>
+            </div>
+            @*
+        @Html.DropDownListFor(temp => temp.AvailabilityStatus, new List<SelectListItem>() {
+            new SelectListItem() { Text = "In Stock", Value = "InStock" },
+            new SelectListItem() { Text = "Out of Stock", Value = "OutOfStock" }
+        }, "Please Select", new { @class ="form-control" })*@
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(temp => temp.CategoryID)
+            @Html.DropDownListFor(temp => temp.CategoryID,  new SelectList(ViewBag.Categories, "CategoryID", "CategoryName"), "Please Select", new { @class = "form-control" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(temp => temp.BrandID)
+            @Html.DropDownListFor(temp => temp.BrandID, new SelectList(ViewBag.Brands, "BrandID", "BrandName"), "Please Select", new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Image">Image</label>
+        @Html.File("form-control-file")
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            @Html.CheckBoxFor(temp => temp.Active.Value, new { @class = "form-check-input", value = "true" })
+            @Html.LabelFor(temp => temp.Active, new { @class="form-check-label" })
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Create</button>
+    <a class="btn btn-danger" href="/products/index">Cancel</a>
+}

@@ -1,0 +1,73 @@
+﻿@model EFDbFirstApproachExample.ViewModels.RegisterViewModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Register</h2>
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(temp => temp.Username)
+            @Html.TextBoxFor(temp => temp.Username, new { placeholder = "Username", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.Username)
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(temp => temp.Password)
+            @Html.PasswordFor(temp => temp.Password, new { placeholder = "Password", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.Password)
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(temp => temp.ConfirmPassword)
+            @Html.PasswordFor(temp => temp.ConfirmPassword, new { placeholder = "Confirm Password", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.ConfirmPassword)
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(temp => temp.Email)
+            @Html.TextBoxFor(temp => temp.Email, new { placeholder = "Email", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.Email)
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(temp => temp.Mobile)
+            @Html.TextBoxFor(temp => temp.Mobile, new { placeholder = "Mobile", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.Mobile)
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(temp => temp.DateOfBirth)
+            @Html.TextBoxFor(temp => temp.DateOfBirth, new { placeholder = "DateOfBirth", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.DateOfBirth)
+        </div>
+
+        <div class="form-group col-md-12">
+            @Html.LabelFor(temp => temp.Address)
+            @Html.TextAreaFor(temp => temp.Address, new { placeholder = "Address", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.Address)
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(temp => temp.City)
+            @Html.TextBoxFor(temp => temp.City, new { placeholder = "City", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.City)
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(temp => temp.Country)
+            @Html.TextBoxFor(temp => temp.Country, new { placeholder = "Country", @class = "form-control" })
+            @Html.ValidationMessageFor(temp => temp.Country)
+        </div>
+    </div>
+
+    @Html.ValidationSummary()
+
+    <button type="submit" class="btn btn-success">Register</button>
+}
+
+
+
+
+

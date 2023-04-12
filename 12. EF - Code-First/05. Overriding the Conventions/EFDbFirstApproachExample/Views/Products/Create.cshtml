@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Create Product";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Create Product</h2>
+<form action="/products/create" method="post" enctype="multipart/form-data">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="ProductName">Product Name</label>
+            <input type="text" class="form-control" id="ProductName" name="ProductName" placeholder="Product Name">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="Price">Price</label>
+            <input type="number" class="form-control" id="Price" name="Price" placeholder="Price">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="DateOfPurchase">Date of Purchase</label>
+            <input type="date" class="form-control" id="DateOfPurchase" name="DOP" placeholder="Date of Purchase">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="AvailabilityStatus">Availability Status</label>
+            <select class="form-control" id="AvailabilityStatus" name="AvailabilityStatus">
+                <option value="">Please Select</option>
+                <option value="InStock">In Stock</option>
+                <option value="OutOfStock">Out of Stock</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="CategoryID">Category</label>
+            <select class="form-control" id="CategoryID" name="CategoryID">
+                <option value="">Please Select</option>
+                @foreach (var cat in ViewBag.Categories)
+                {
+                    <option value="@cat.CategoryID">@cat.CategoryName</option>
+                }
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="BrandID">Brand</label>
+            <select class="form-control" id="BrandID" name="BrandID">
+                <option value="">Please Select</option>
+                @foreach (var cat in ViewBag.Brands)
+                {
+                    <option value="@cat.BrandID">@cat.BrandName</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Image">Image</label>
+        <input type="file" class="form-control-file" id="Image" name="Photo" />
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="Active" name="Active" value="true">
+            <label class="form-check-label" for="Active">
+                Active
+            </label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Create</button>
+    <a class="btn btn-danger" href="/products/index">Cancel</a>
+</form>
+
+

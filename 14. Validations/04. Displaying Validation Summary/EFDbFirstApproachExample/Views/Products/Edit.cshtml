@@ -1,0 +1,79 @@
+﻿@model EFDbFirstApproachExample.Models.Product
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Edit Product</h2>
+<form action="/products/edit/@Model.ProductID" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="ProductName">Product Name</label>
+            <input type="hidden" name="ProductID" value="@Model.ProductID" />
+            <input type="text" class="form-control" id="ProductName" name="ProductName" placeholder="Product Name" value="@Model.ProductName">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="Price">Price</label>
+            <input type="number" class="form-control" id="Price" name="Price" placeholder="Price" value="@Model.Price">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="DateOfPurchase">Date of Purchase</label>
+            <input type="date" class="form-control" id="DateOfPurchase" name="DateOfPurchase" placeholder="Date of Purchase" value="@Model.DOP.Value.ToString("yyyy-MM-dd")">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="AvailabilityStatus">Availability Status</label>
+            <input type="text" class="form-control" id="AvailabilityStatus" name="AvailabilityStatus" placeholder="Availability Status" value="@Model.AvailabilityStatus">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="CategoryID">Category</label>
+            <select class="form-control" id="CategoryID" name="CategoryID">
+                <option value="">Please Select</option>
+                @foreach (var cat in ViewBag.Categories)
+                {
+                    if (cat.CategoryID == Model.CategoryID)
+                    {
+                        <option value="@cat.CategoryID" selected="selected">@cat.CategoryName</option>
+                    }
+                    else
+                    {
+                        <option value="@cat.CategoryID">@cat.CategoryName</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="BrandID">Brand</label>
+            <select class="form-control" id="BrandID" name="BrandID">
+                <option value="">Please Select</option>
+                @foreach (var br in ViewBag.Brands)
+                {
+                    if (br.BrandID == Model.BrandID)
+                    {
+                        <option value="@br.BrandID" selected="selected">@br.BrandName</option>
+                    }
+                    else
+                    {
+                        <option value="@br.BrandID">@br.BrandName</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="Active" name="Active" checked="@Model.Active" value="true">
+            <label class="form-check-label" for="Active">
+                Active
+            </label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a class="btn btn-danger" href="/products/index">Cancel</a>
+</form>
+

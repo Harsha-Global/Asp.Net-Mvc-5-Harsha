@@ -1,0 +1,49 @@
+﻿@model List<EFDbFirstApproachExample.Models.Product>
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Products</h2>
+
+<a href="/products/create">Create</a>
+<form class="form-inline" action="/products/index">
+    <label for="search" class="mr-1">Search:</label>
+    <input type="search" class="form-control mr-1" id="search" name="search" placeholder="Search" value="@ViewBag.search">
+    <button type="submit" class="btn btn-primary">GO</button>
+</form>
+
+<table class="table">
+    <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Date of Purchase</th>
+        <th>Availability Status</th>
+        <th>CategoryID</th>
+        <th>BrandID</th>
+        <th>Active</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductID</td>
+            <td>@item.ProductName</td>
+            <td>@item.Price.Value.ToString("C")</td>
+            <td>@item.DateOfPurchase.Value.ToString("d/M/yyyy")</td>
+            <td>@item.AvailabilityStatus</td>
+            <td>@item.CategoryID</td>
+            <td>@item.BrandID</td>
+            <td>@item.Active</td>
+            <td>
+                <a href="/products/details/@item.ProductID">Details</a> |
+                <a href="/products/edit/@item.ProductID">Edit</a> |
+                <a href="/products/delete/@item.ProductID">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+
+

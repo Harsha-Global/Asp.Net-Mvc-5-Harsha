@@ -1,0 +1,26 @@
+﻿@model List<CoreMvcApp.Models.Employee>
+<html>
+    <head>
+        <title>Index</title>
+    </head>
+    <body>
+        <h4>Employees</h4>
+        <table border="1">
+            <tr>
+                <th>Emp ID</th>
+                <th>Emp Name</th>
+                <th>Salary</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.EmpID</td>
+                    <td>@item.EmpName</td>
+                    <td>@item.Salary</td>
+                </tr>
+            }
+        </table>
+    </body>
+</html>
+
+

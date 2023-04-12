@@ -1,0 +1,9 @@
+Message: The underlying provider failed on Open., Type: System.Data.Entity.Core.EntityException, Source: EntityFramework
+Message: The underlying provider failed on Open., Type: System.Data.Entity.Core.EntityException, Source: EntityFramework
+Message: The underlying provider failed on Open., Type: System.Data.Entity.Core.EntityException, Source: EntityFramework
+Message: Unexpected "{" after "@" character. Once inside the body of a code block (@if {}, @{}, etc.) you do not need to use "@{" to switch to code.
+, Type: System.Web.HttpParseException, Source: System.Web.WebPages.Razor
+Message: Unexpected "{" after "@" character. Once inside the body of a code block (@if {}, @{}, etc.) you do not need to use "@{" to switch to code.
+, Type: System.Web.HttpParseException, Source: System.Web.WebPages.Razor
+Message: Unexpected "{" after "@" character. Once inside the body of a code block (@if {}, @{}, etc.) you do not need to use "@{" to switch to code.
+, Type: System.Web.HttpParseException, Source: System.Web.WebPages.Razor

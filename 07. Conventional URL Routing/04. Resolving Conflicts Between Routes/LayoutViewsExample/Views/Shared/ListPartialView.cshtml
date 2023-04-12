@@ -1,0 +1,11 @@
+﻿<div>
+    <h3>@ViewBag.ListTitle</h3>
+    <ul>
+        @for (int i = 0; i < ViewBag.Items.Count; i++)
+        {
+            <li>@ViewBag.Items[i]</li>
+        }
+    </ul>
+</div>
+
+

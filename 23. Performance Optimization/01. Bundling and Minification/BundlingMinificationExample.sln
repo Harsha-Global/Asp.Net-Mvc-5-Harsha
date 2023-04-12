@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BundlingMinificationExample", "BundlingMinificationExample\BundlingMinificationExample.csproj", "{35689F5C-9353-4335-B49E-069702A021C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35689F5C-9353-4335-B49E-069702A021C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35689F5C-9353-4335-B49E-069702A021C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35689F5C-9353-4335-B49E-069702A021C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35689F5C-9353-4335-B49E-069702A021C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B5E17CC-4D92-4525-A45B-BA52A92C8570}
+	EndGlobalSection
+EndGlobal

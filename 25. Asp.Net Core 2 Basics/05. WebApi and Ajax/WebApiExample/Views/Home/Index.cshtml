@@ -1,0 +1,44 @@
+﻿<html>
+    <head>
+        <title>Web API</title>
+        <script src="~/jquery.js"></script>
+    </head>
+    <body>
+        <h4>Search</h4>
+        <form>
+            <input type="text" placeholder="Search" id="txt1" />
+            <input type="button" value="Search" id="button1" />
+            <table border="1" id="table1">
+                <tr>
+                    <th>Emp ID</th>
+                    <th>Emp Name</th>
+                    <th>Salary</th>
+                </tr>
+            </table>
+        </form>
+        <script>
+            $("#button1").click(fun1);
+            function fun1()
+            {
+                $.ajax({ url: "/api/Employees?searchstr=" + $("#txt1").val(), type: "GET", success: fun2, error: fun3 });
+
+                function fun2(response)
+                {
+                    console.log(response);
+                    $("#table1 tr:gt(0)").remove();
+                    for (var i = 0; i < response.length; i++)
+                    {
+                        $("#table1").append("<tr> <td>" + response[i].empID + "</td> <td>" + response[i].empName + "</td> <td>" + response[i].salary + "</td> </tr>");
+                    }
+                }
+
+                function fun3(error)
+                {
+                    console.log(error);
+                }
+            }
+        </script>
+    </body>
+</html>
+
+

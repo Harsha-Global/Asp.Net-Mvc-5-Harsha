@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Brands";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage1.cshtml";
+}
+
+<h2>Brands</h2>
+<button type="button" id="btnGetBrands" class="btn">Get Brands</button>
+<table class="table brandsTable">
+    <tr>
+        <th>Brand ID</th>
+        <th>Brand Name</th>
+    </tr>
+
+</table>
+
+<script>
+    $("#btnGetBrands").click(() =>
+    {
+        $.ajax({
+            type: "GET", url: "/api/Brands", success: (response) =>
+            {
+                for (var i = 0; i < response.length; i++)
+                {
+                    var br = response[i];
+                    var str = "<tr><td>" + (i + 1) + "</td> <td>" + br.BrandName + "</td></tr>";
+                    $(".brandsTable").append(str);
+                }
+            }, error: (err) =>
+            {
+                alert(err);
+                console.log(err);
+            }
+        });
+    });
+
+</script>
+
+

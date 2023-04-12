@@ -1,0 +1,24 @@
+﻿@model List<EFDbFirstApproachExample.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Products Sale</h2>
+<div class="card-group">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <img class="card-img-top" src="data:image;base64,@item.Photo" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@item.ProductName</h5>
+                <p class="card-text">@item.Price</p>
+                <p class="card-text"><small class="text-muted">@((item.Brand != null)? item.Brand.BrandName : "")</small></p>
+                <p class="card-text"><small class="text-muted">@((item.Category != null) ? item.Category.CategoryName : "")</small></p>
+            </div>
+        </div>
+    }
+
+</div>
+
+

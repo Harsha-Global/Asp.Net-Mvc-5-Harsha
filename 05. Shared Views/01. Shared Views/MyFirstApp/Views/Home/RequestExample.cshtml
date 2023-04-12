@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Request Example</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/umd/popper.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="/home/index">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/home/products">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/home/contact">Contact</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container-fluid">
+        <table class="table">
+            <tr>
+                <td>Url</td>
+                <td>@ViewBag.Url</td>
+            </tr>
+            <tr>
+                <td>Physical Application Path</td>
+                <td>@ViewBag.PhysicalApplicationPath</td>
+            </tr>
+            <tr>
+                <td>Path</td>
+                <td>@ViewBag.Path</td>
+            </tr>
+            <tr>
+                <td>Browser Type</td>
+                <td>@ViewBag.BrowserType</td>
+            </tr>
+            <tr>
+                <td>QueryString</td>
+                <td>@ViewBag.QueryString</td>
+            </tr>
+            <tr>
+                <td>Headers</td>
+                <td>@ViewBag.Headers</td>
+            </tr>
+            <tr>
+                <td>Http Method</td>
+                <td>@ViewBag.HttpMethod</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
+
